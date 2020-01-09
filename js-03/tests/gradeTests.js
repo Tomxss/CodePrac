@@ -1,5 +1,12 @@
 var book = require("../lib/grades").book;
 
+exports["setUp"] = function(callback) {
+
+    book.reset();
+    callback();
+
+};
+
 exports["Grade additions"] = function(test) {
 
     book.addGrade(90);
