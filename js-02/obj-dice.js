@@ -5,11 +5,6 @@ var die = {
         this.totalRolls++;
         return (Math.ceil(this.size * Math.random()));
     }
-
 };
-die.size = 10;
-console.log(die.roll());
-console.log(die.roll());
-console.log(die.roll());
-console.log(die.totalRolls);
-console.log(die);
+
+exports.die = die;
