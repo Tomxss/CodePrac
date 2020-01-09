@@ -8,6 +8,8 @@ var rating = "That was trash...";
 if (roll >= 3 && roll < 6) {
     rating ="Great roll!";
 }
-    console.log(rating);
-
+if (roll == 1){
+    rating = "That was ok.";
+}
+console.log(rating);
 console.log("You rolled a "+roll+".");
