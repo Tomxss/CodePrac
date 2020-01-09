@@ -6,6 +6,10 @@ var roll = getDieRoll();
 var rating = "That was trash...";
 var loopMsg = "-" + roll;
 
+for (var i = 0; i < process.argv.length; i++) {
+    console.log(process.argv[i]);
+};
+
 for (var i = 0; i < 10; i++) {
     if (roll >= 4) loopMsg = "*" + roll;
     console.log(loopMsg);
