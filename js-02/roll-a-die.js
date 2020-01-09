@@ -4,6 +4,13 @@ var getDieRoll = function(dieSize = 6) {
 
 var roll = getDieRoll();
 var rating = "That was trash...";
+var loopMsg = "-" + roll;
+
+for (var i = 0; i < 10; i++) {
+    if (roll >= 4) loopMsg = "*" + roll;
+    console.log(loopMsg);
+    roll = getDieRoll();
+};
 
 if (roll >= 3 && roll < 6) {
     rating ="Great roll!";
