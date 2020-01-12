@@ -7,6 +7,7 @@ var path = require('path');
 var app = express();
 
 app.use(morgan('tiny'));//combined gives more info, tiny gives less
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));  //__dirname is where the app.js exectuble lies.
