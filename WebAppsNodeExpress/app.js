@@ -5,17 +5,20 @@ const morgan = require('morgan');// morgan gives you http request info
 const path = require('path');
 
 const app = express();
+const port = process.env.port || 3000;
 
 app.use(morgan('tiny'));// combined gives more info, tiny gives less
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.set('views', './src/views');
+app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html')); // __dirname is where the app.js exectuble lies.
+  res.render('index', { title: 'MyLibrary' }); // __dirname is where the app.js exectuble lies.
 });
 
-app.listen(3000, () => {
-  debug(`listening on port ${chalk.green('3000')}`);
+app.listen(port, () => {
+  debug(`listening at port ${chalk.green(port)}`);
 });
