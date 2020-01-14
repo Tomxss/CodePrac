@@ -16,7 +16,12 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Library' }); // __dirname is where the app.js exectuble lies.
+  res.render('index',
+    {
+      title: 'Library',
+      nav: [{ title: 'Books', link: '/books' },
+        { title: 'Authors', link: '/authors' }]
+    }); // __dirname is where the app.js exectuble lies.
 });
 
 app.listen(port, () => {
